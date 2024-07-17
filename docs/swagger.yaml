@@ -1,0 +1,50 @@
+basePath: /api/v1
+definitions:
+  lib.User:
+    properties:
+      email:
+        type: string
+      first_name:
+        type: string
+      id:
+        type: string
+      last_name:
+        type: string
+      role:
+        type: integer
+    type: object
+host: localhost:3000
+info:
+  contact:
+    email: 8Lqg5@example.com
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server Petstore server.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Swagger Example API
+  version: "1.0"
+paths:
+  /users:
+    get:
+      description: Mengambil daftar semua pengguna yang ada di database
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/lib.User'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Dapatkan semua pengguna
+      tags:
+      - users
+swagger: "2.0"
